@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Panel</title>
+   <link href="static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+        <center>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container">
+                <a class="navbar-brand" href="#"><strong>Employee</strong> Salary </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/newemployee">Employee Panel<span class="sr-only">(current)</span></a>
+                  </li>
+              <!--    <li class="nav-item">
+                    <a class="nav-link" href="/list_user">User Table</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/list_main">Main Table</a>
+                  </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="#">Delete</a>
+                  </li> -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin">Admin Panel</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/addattendance">Attendance Entry</a>
+                  </li>
+                </ul>
+            <!--     <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form> -->
+              </div>
+                    </div>
+            </nav>
+            
+                <form action="/editemployee" method="post">
+                  <br>
+                  <h3>Update Employee Information</h3>
+                </br>
+                <h5>Employee Id<select name="EMP_ID"></h5>
+                   {% for i in row %}
+                    <option value="{{i[0]}}">{{i[0]}}</option>
+                    {%endfor%}
+                </select>
+                
+                <input class="btn-primary"  type = "submit" value = "Get Details" required = "required" /><br>
+                </form>
+        </center>
+    
+</body>
+</html>

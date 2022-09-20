@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Panel</title>
+   <link href="static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<center>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+    <a class="navbar-brand" href="#"><strong>Employee</strong> Salary </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/newemployee">Employee Panel<span class="sr-only">(current)</span></a>
+      </li>
+  <!--    <li class="nav-item">
+        <a class="nav-link" href="/list_user">User Table</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/list_main">Main Table</a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" href="#">Delete</a>
+      </li> -->
+	  <li class="nav-item">
+        <a class="nav-link" href="/fetchempid">Employee Update</a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="/addattendance">Attendance Entry</a>
+      </li>
+    </ul>
+<!--     <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+        </div>
+</nav>
+
+   <div class="container">
+       <br>
+      <form action = "{{ url_for('addemployee') }}" method = "POST" onclick="alert("Your info has been submitted")">
+         <h3>Enter Your Information</h3>
+         <table>
+           <tr>
+          <td>Employee ID</td> 
+         <td><input class="form-control" type = "text" name = "EMP_ID" required = "required" /></br></td> 
+         <!-- <td><input class="form-control" type = "text" name = "EMP_ID" value="{{EMP_ID}}" readonly/></br></td>-->
+        </tr>
+
+        <tr>
+          <td>Designation </td>
+          <td><input class="form-control" type = "text" name = "EMP_DESIGNATION_ID" required = "required" pattern="[a-zA-Z]+" /></br>
+          </td>
+        </tr>
+
+        <tr>
+          <td>First Name</td>
+          <td><input class="form-control" name = "EMP_FIRST_NAME" required = "required" pattern="[a-zA-Z]+" ><br></td>
+        </tr>
+        <tr>
+          <td>Middle Name</td>
+          <td><input class="form-control"  type = "text" name = "EMP_MIDDLE_NAME" required = "required" pattern="[a-zA-Z]+"/><br></td>
+        </tr>
+
+        <tr>
+          <td>Last Name</td>
+          <td><input class="form-control"  type = "text" name = "EMP_LAST_NAME" required = "required" pattern="[a-zA-Z]+"/><br></td>
+        </tr>
+
+        <tr>
+          <td>Manager</td>
+          <td><input class="form-control"  type = "text" name = "EMP_MANAGER_ID" required = "required" pattern="[a-zA-Z]+"/><br></td>
+        </tr>
+
+        <tr>
+          <td>Hire Date</td>
+          <td><input class="form-control" type = "date" name = "EMP_HIRE_DATE" required = "required" /></br></td>
+        </tr>
+        
+        <tr>
+          <td>Resigned Date</td>
+          <td><input class="form-control" type = "date" name = "EMP_RESIGNED_DATE" required = "required" /><br></td>
+        </tr>
+
+        <tr>
+          <td>Date Of Birth</td>
+          <td><input class="form-control"  type = "date" name = "EMP_D_O_B" required = "required" /><br></td>
+        </tr>
+
+        <tr>
+          <td>Salary</td>
+          <td><input class="form-control"  type = "text" name = "EMP_SALARY_INR" required = "required" pattern="[0-9]*"/><br></td>
+        </tr>
+
+        <tr>
+          <td>Bank Account No</td>
+          <td><input class="form-control"  type = "text" name = "EMP_BANK_ACT_NO" required = "required" pattern="[0-9]{9,18}"/><br></td>
+        </tr>
+
+        <tr>
+          <td>Bank Name</td>
+          <td><input class="form-control" type = "text" name = "EMP_BANK_NAME" required = "required" pattern="[a-zA-Z]+"/></br></td>
+        </tr>
+
+        <tr>
+          <td>Bank Branch</td>
+          <td><input class="form-control" name = "EMP_BANK_BRANCH" required = "required" pattern="[a-zA-Z]+"/><br></td>
+        </tr>
+
+        <tr>
+          <td>IFSC code</td>
+          <td><input class="form-control"  type = "text" name = "EMP_BANK_IFSC_CODE" required = "required" pattern="[a-zA-Z0-9]+"/><br></td>
+        </tr>
+
+        <tr>
+          <td>Active Assgnment</td>
+          <td><input class="form-control"  type = "text" name = "EMP_ACTIVE_ASSIGNMENT" required = "required" pattern="[a-zA-Z]+"/><br></td>
+        </tr>
+
+        <tr>
+          <td>Gender</td>
+          <td><input type="radio" id="male" name="EMP_GENDER" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="EMP_GENDER" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="EMP_GENDER" value="other">
+            <label for="other">Other</label><br></td>
+        </tr>
+
+        <tr>
+          <td>Address</td>
+          <td><textarea class="form-control" type = "text" name = "EMP_ADDRESS" required = "required" ></textarea>  </br></td>
+        </tr>
+
+        <tr>
+          <td>Phone No</td>
+          <td><input class="form-control" name = "EMP_PHONE_NO" required = "required" pattern="[0-9]{10}"/><br></td>
+        </tr>
+
+        <tr>
+          <td>Email</td>
+          <td><input class="form-control"  type = "text" name = "EMP_EMAIL" required = "required" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/><br></td>
+        </tr>
+        
+        </table>
+		
+         <input class="btn-primary"  type = "submit" value = "submit" required = "required" /><br>
+      </form>
+	  
+	  
+	  </center>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
