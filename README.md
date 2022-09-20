@@ -7,6 +7,6 @@ The user can provide the atendance entry for all employees on particular day. Fi
 # System Requirements:
 	Languages		: 	Python, SQL
  	Framework 		: 	Flask 
-  Database		: 	SQLITE 3
-  Tools used		:	Visual Studio Code
-  Web Technologies	:	HTML,CSS,JavaScript.
+  	Database		: 	SQLITE 3
+  	Tools used		:	Visual Studio Code
+  	Web Technologies	:	HTML,CSS,JavaScript.
